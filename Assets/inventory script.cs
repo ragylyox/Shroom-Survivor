@@ -4,6 +4,5 @@ using UnityEngine;
 
 public class inventoryscript : MonoBehaviour
 {
-    public static int shroomcounter = 0;
     
 }
