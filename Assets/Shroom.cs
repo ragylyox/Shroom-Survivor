@@ -12,8 +12,8 @@ public class Shroom : MonoBehaviour
         //Text.SetActive(true);
         if (Input.GetKeyDown(KeyCode.F))
         {
-            inventoryscript.shroomcounter++;
-            Debug.Log(inventoryscript.shroomcounter);
+            //inventoryscript.shroomcounter++;
+            //Debug.Log(inventoryscript.shroomcounter);
             Destroy(gameObject);
             
 
