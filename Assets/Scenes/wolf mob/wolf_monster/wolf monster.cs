@@ -25,14 +25,14 @@ public class Enemy : MonoBehaviour
             myAgent.enabled = false;
             myAnimator.Play("Idle");
         }
-        else if (distance <= 150 && distance > 2)
+        else if (distance <= 150 && distance > 2.5f)
         {
             // якщо ворог у зон≥ видимост≥, пересуваЇтьс€ до гравц€
             myAgent.enabled = true;
             myAgent.SetDestination(target.position);
             myAnimator.Play("Run");
         }
-        else if (distance <= 2)
+        else if (distance <= 1.35f)
         {
             // якщо ворог поруч ≥з гравцем, в≥н атакуЇ
             myAgent.enabled = false;
