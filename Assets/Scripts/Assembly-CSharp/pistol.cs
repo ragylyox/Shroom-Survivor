@@ -2,29 +2,41 @@ using UnityEngine;
 
 public class pistol : MonoBehaviour
 {
-	public GameObject pylaPrefab;
+    public GameObject pylaPrefab;
+    public Transform shootingPoint;
+    public float shootingForce = 500f;
+    public AudioSource audioSource;
 
-	public Transform shootingPoint;
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+    }
 
-	public float shootingForce = 500f;
+    private void Shoot()
+    {
+        // Створюємо снаряд
+        GameObject projectile = Instantiate(pylaPrefab, shootingPoint.position, shootingPoint.rotation);
 
-	private void Update()
-	{
-		if (Input.GetMouseButtonDown(0))
-		{
-			Shoot();
-		}
-	}
+        // Додаємо фізику
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+        if (rb == null)
+        {
+            rb = projectile.AddComponent<Rigidbody>();
+        }
+        rb.AddForce(shootingPoint.forward * shootingForce);
 
-	private void Shoot()
-	{
-		GameObject gameObject = Object.Instantiate(pylaPrefab, shootingPoint.position, shootingPoint.rotation);
-		Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
-		if (rigidbody == null)
-		{
-			rigidbody = gameObject.AddComponent<Rigidbody>();
-		}
-		rigidbody.AddForce(shootingPoint.forward * shootingForce);
-		Object.Destroy(gameObject, 10f);
-	}
+        // Знищити через 10 секунд
+        Destroy(projectile, 10f);
+
+        // Програти звук пострілу
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
+       
+    }
 }

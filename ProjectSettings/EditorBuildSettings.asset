@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/guns.unity
-    guid: 23d4199672499704ab24bce6b5053436
+    path: Assets/Scenes/Menue.unity
+    guid: 2b26c3a15a3e9cd4d84663bc57b0c39e
+  - enabled: 1
+    path: Assets/Scenes/level Sasha.unity
+    guid: 6430e2c1bf43ca8429450a07be05a232
   m_configObjects: {}

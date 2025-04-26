@@ -1,3 +1,4 @@
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,15 @@ public class damage : MonoBehaviour
 	{
 		if (other.tag == "Player")
 		{
-			HP.value -= DamageAmount;
+			float hp = HP.value - DamageAmount;
+			if(hp <= 0)
+			{
+                SceneManager.LoadScene("Menue");
+            }
+			else
+			{
+                HP.value = hp;
+            }
 		}
 	}
 }
