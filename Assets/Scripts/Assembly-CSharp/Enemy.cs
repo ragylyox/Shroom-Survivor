@@ -23,13 +23,13 @@ public class Enemy : MonoBehaviour
 			myAgent.enabled = false;
 			myAnimator.Play("Idle");
 		}
-		else if (distance <= 150f && distance > 2f)
+		else if (distance <= 150f && distance > 4f)
 		{
 			myAgent.enabled = true;
 			myAgent.SetDestination(target.position);
 			myAnimator.Play("Run");
 		}
-		else if (distance <= 2f)
+		else if (distance <= 4f)
 		{
 			myAgent.enabled = false;
 			if (Time.time - lastAttackTime > attackCooldown)
